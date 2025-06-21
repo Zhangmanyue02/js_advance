@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.定时器
+    setTimeout(function () {
+        console.log("定时器this:", this);
+    }, 1000)
+
+    // 2.按钮的监听
+    window.onclick = function () {
+        console.log("点击回调this:", this);
+    }
+
+    // 3.高阶函数
+    var names = ["a", "b", "c"]
+    names.map(name => console.log(name, this))
+    console.log("--------");
+    names.map(function (name) {
+        console.log(name, this);
+    })
+</script>
+
+</html>

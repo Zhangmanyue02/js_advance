@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 定义函数
+    function foo() {
+        console.log("foo", this);
+    }
+
+    // 1.方式一：直接调用
+    foo()
+
+    // 2.方式二：作为对象的方法调用
+    var obj = {
+        name: "张三",
+        foo: foo
+    }
+    obj.foo()
+
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // this绑定规则一-默认绑定
+    // 1.独立函数调用
+    function foo() {
+        console.log("foo", this);
+    }
+    foo()//window
+    // 2.方式二：作为对象的方法调用
+    var obj = {
+        name: "张三",
+        foo: foo
+    }
+    obj.foo()//obj
+    // 3.高阶函数
+    function bar(func) {
+        func()
+    }
+    bar(obj.foo) //window
+</script>
+
+</html>

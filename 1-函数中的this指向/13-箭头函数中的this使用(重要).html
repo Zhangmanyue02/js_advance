@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var foo = () => {
+        console.log("foo:", this);
+    }
+    // 箭头函数没有自己的this,它的this是继承而来的
+    foo()
+
+    foo.call("hello")
+    foo.call({ name: "zmy" })
+</script>
+
+</html>
