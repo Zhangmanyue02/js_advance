@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 递归触发的原因是在 get 和 set 方法中直接访问了 obj._name，这会再次触发 get 或 set 方法，从而形成递归。
+    // 为了避免递归，我们可以使用一个内部变量来存储实际的值。
+    var obj = {
+        // 这里使用一个内部变量来存储实际的名字值
+        _name: "zmy",
+        age: 18,
+        sex: "男",
+        friend: ["张三", "李四", "王五"]
+    }
+    Object.defineProperty(obj, "name", {
+        // 移除 value 和 writable 属性，因为定义了 get 和 set 方法后不能使用这两个属性
+        enumerable: true, // 可枚举
+        configurable: true, // 可配置
+        get() {
+            console.log("get方法被调用了");
+            // 访问内部变量，避免递归
+            return obj._name
+        },
+        set(value) {
+            console.log("set方法被调用了");
+            // 修改内部变量，避免递归
+            obj._name = value
+        }
+    })
+
+    console.log(obj.name);
+    console.log("--------");
+
+    obj.name = "why"
+    console.log(obj.name);
+</script>
+
+</html>

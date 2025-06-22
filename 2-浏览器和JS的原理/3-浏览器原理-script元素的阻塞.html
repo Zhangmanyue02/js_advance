@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* script元素的阻塞 */
+    console.log("script 1 start");
+</script>
+<script>
+    for (let i = 0; i < 99999; i++) {
+        console.log(i);
+    }
+</script>
+
+<script>
+    console.log("script 3 start");
+</script>
+
+</html>

@@ -11,16 +11,13 @@
 
 </body>
 <script>
-    // this绑定规则二-隐式绑定(通过某对象进行调用)
-    // 1.以对象的属性来调用函数
     function foo() {
-        console.log(this);
+        var bar = () => {
+            console.log(arguments)
+        }
+        bar()
     }
-    var obj = {
-        name: "张三",
-        foo: foo
-    }
-    obj.foo() // obj
+    foo(111, 222)
 </script>
 
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 可选链
+    // 1.应用场景：解决可选属性调用问题
+    // 2.语法：?.
+    // 3.作用：如果?.左边的属性为null或者undefined, 那么返回undefined
+    // 4.如果?.左边的属性不为null或者undefined, 那么返回?.右边的值
+    // 5.可选链的优先级低于其他运算符
+    // 6.可选链的返回值不会为null或者undefined
+    console.log(obj.address?.city);
+    console.log(obj.address?.city?.district);
+    console.log(obj.address?.city?.district?.length);
+</script>
+
+</html>

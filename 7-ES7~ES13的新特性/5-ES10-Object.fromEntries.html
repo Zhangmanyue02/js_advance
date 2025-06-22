@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Object.fromEntries
+    // 作用：将一个键值对数组转换为一个对象。
+    // 注意：fromEntries 方法要求传入的参数是一个可迭代对象，且每个元素都是一个长度为 2 的数组，数组的第一个元素作为对象的键，第二个元素作为对象的值。
+
+    // 应用一：
+    const info = {
+        name: "zmy",
+        age: 18,
+        height: 1.88
+    }
+    // 键值对数组
+    const entries = Object.entries(info)
+    const infoObj = Object.fromEntries(entries)
+    console.log(infoObj);
+
+    // 应用二：
+
+</script>
+
+</html>

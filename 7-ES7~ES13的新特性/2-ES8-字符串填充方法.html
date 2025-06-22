@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // padStart和padEnd
+    // 1.应用场景一：对时间进行格式化
+    // padStart 是 JavaScript 字符串的一个方法，用于在字符串的开头填充指定的字符，直到字符串达到指定的长度。
+    // 这里将字符串 "15" 使用 padStart 方法，指定最终长度为 2，如果长度不足则在开头填充 0。由于 "15" 本身长度为 2，所以结果还是 "15"。
+    const minute = "15".padStart(2, 0);
+    // padEnd 是 JavaScript 字符串的一个方法，用于在字符串的末尾填充指定的字符，直到字符串达到指定的长度。
+    // 这里将字符串 "6" 使用 padEnd 方法，指定最终长度为 2，如果长度不足则在末尾填充 0，所以结果是 "60"。
+    const second = "6".padEnd(2, 0);
+    // 使用模板字符串将格式化后的分钟和秒拼接起来，并通过 console.log 输出。
+    console.log(`${minute}:${second}`);
+
+    // 2.应用场景二：对一些敏感数据格式化
+    let cardNumber = "132666200001018899"
+    const sliceNumber = cardNumber.slice(-4)
+    console.log(sliceNumber);
+    cardNumber = sliceNumber.padStart(cardNumber.length, "*")
+    // cardNumber = sliceNumber.padEnd(cardNumber.length, "*")
+
+    console.log(cardNumber);
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // FinalizationRegistry
+    // 1.应用场景：对象被销毁前执行一些操作
+    // 2.语法：new FinalizationRegistry(callback)
+    // 3.作用：在对象被销毁前执行回调函数
+    // 4.参数：callback 回调函数
+    // 5.回调函数的参数：target 对象
+
+    var obj = { name: "zmy" }
+    // 创建一个 FinalizationRegistry 实例 registry，传入一个回调函数作为参数。
+    // 当注册到该 registry 的对象被垃圾回收时，会执行这个回调函数，并将注册时传入的第二个参数作为值传递给回调函数
+    const registry = new FinalizationRegistry((value) => {
+        // 打印传入回调函数的值
+        console.log(value);
+    })
+    // 将对象 obj 注册到 registry 中，并传入第二个参数 "1s后obj对象被回收"。
+    // 当 obj 被垃圾回收时，会触发 registry 的回调函数，并将 "1s后obj对象被回收" 作为参数传递给回调函数
+    registry.register(obj, "1s后obj对象被回收");
+
+    // 使用 setTimeout 函数设置一个定时器，在 1000 毫秒（即 1 秒）后执行回调函数
+    setTimeout(() => {
+        // 将变量 obj 赋值为 null，这会移除对原对象的引用，使得该对象有可能被垃圾回收
+        obj = null
+    }, 1000)
+</script>
+
+</html>

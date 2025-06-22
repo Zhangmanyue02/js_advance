@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function foo(m, n) {
+        console.log(arguments);
+        // 类数组转方式二
+        var arr2 = Array.from(arguments)
+        console.log(arr2);
+        // 类数组转方式三
+        var arr3 = [...arguments]
+        console.log(arr3);
+        // 类数组转方式四
+        var arr4 = Array.of(arguments)
+        console.log(arr4);
+    }
+    foo(1, 2, 3, 4, 5)
+</script>
+
+</html>

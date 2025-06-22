@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 字符串replaceAll方法 */
+    // 1.应用场景：对字符串进行批量替换
+    var str2 = "hello world hello zmy"
+    res = str2.replaceAll("hello", "hi")
+    console.log(res);
+    // 2.应用场景：正则表达式替换
+    var str3 = "123hello456world789"
+    res = str3.replaceAll(/[a-z]/g, "x")
+    console.log(res);
+
+</script>
+
+</html>

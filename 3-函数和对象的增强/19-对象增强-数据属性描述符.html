@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var obj = {
+        name: "zmy",
+        age: 18,
+        sex: "男",
+        friend: ["张三", "李四", "王五"]
+    }
+
+    Object.defineProperty(obj, "name", {
+        value: "zmy", // 值
+        writable: true, // 可写
+        enumerable: true, // 可枚举
+        configurable: true // 可配置
+    })
+
+    console.log(Object.keys(obj));//验证可枚举
+
+    obj.name = "why"
+    console.log(obj.name);//验证可写
+
+    // 验证可配置
+    console.log(obj);
+    delete obj.name;
+    console.log(obj);
+</script>
+
+</html>
