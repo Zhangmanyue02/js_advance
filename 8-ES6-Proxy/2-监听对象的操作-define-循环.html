@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 监听对象的操作：Object，避免递归调用
+    const info = {
+        name: "zmy",
+        age: 19
+    }
+
+    Object.keys(info).forEach(key => {
+        let value = info[key];
+        Object.defineProperty(info, key, {
+            set(newValue) {
+                console.log(`${key}被设置了`);
+                value = newValue;
+            },
+            get() {
+                console.log(`${key}被访问了`);
+                return value;
+            }
+        })
+    })
+    console.log(info.name);
+    console.log(info.age);
+    info.age = 10
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 监听对象的操作：Object，避免递归调用
+    const info = {
+        name: "zmy",
+        age: 19
+    }
+    let _name = info.name;
+    Object.defineProperty(info, "name", {
+        get() {
+            console.log("get");
+            return _name;
+        },
+        set(value) {
+            console.log("set");
+            _name = value;
+        }
+    });
+    console.log(info.name);
+</script>
+
+</html>
