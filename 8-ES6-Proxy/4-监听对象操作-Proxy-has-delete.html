@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const info = {
+        name: "zmy",
+        age: 19
+    }
+
+    // 不传handler会报错
+    const infoProxy = new Proxy(info, {
+        has(target, key) {
+            console.log("has捕捉器=>", target, key);
+            return true
+        },
+        deleteProperty(target, key) {
+            console.log("deleteProperty捕捉器=>", target, key);
+            return target[key]
+        }
+    })
+    console.log(name in info);
+    delete info.name
+    console.log(info);
+</script>
+
+</html>

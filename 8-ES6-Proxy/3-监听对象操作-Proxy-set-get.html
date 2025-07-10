@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const info = {
+        name: "zmy",
+        age: 19
+    }
+
+    // 不传handler会报错
+    const infoProxy = new Proxy(info, {
+        // set参数：
+        set(target, key, value, receiver) {
+            console.log("set=>", target, key, value, receiver);
+            target[key] = value;
+        },
+        // get参数
+        get(target, key, receiver) {
+            console.log("get==>", target, key, receiver);
+            return target[key]
+        }
+    })
+    console.log(infoProxy.name);
+    infoProxy.name = "why"
+</script>
+
+</html>
