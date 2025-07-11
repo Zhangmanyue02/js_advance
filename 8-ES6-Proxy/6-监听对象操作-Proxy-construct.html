@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>construct 捕捉器示例</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // construct 捕捉器基本使用和详细使用
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // construct 基本使用
+    console.log('===== construct 基本使用 =====');
+    const basicPersonProxy = new Proxy(Person, {
+        construct(target, argArray) {
+            console.log('基本使用 - 调用前参数:', argArray);
+            const instance = new target(...argArray);
+            console.log('基本使用 - 调用后实例:', instance);
+            return instance;
+        }
+    });
+    const basicInstance = new basicPersonProxy('Alice', 20);
+    console.log('基本使用 - 最终实例:', basicInstance);
+    console.log('\n');
+
+    // construct 详细使用
+    console.log('===== construct 详细使用 =====');
+    const personProxy = new Proxy(Person, {
+        construct(target, argArray, newTarget) {
+            console.log('详细使用 - 调用前目标函数:', target.name);
+            console.log('详细使用 - 调用前参数:', argArray);
+            console.log('详细使用 - 调用前 newTarget:', newTarget);
+
+            // 调用原始构造函数
+            const instance = new target(...argArray);
+
+            // 给实例添加额外属性
+            instance.gender = 'female';
+            console.log('详细使用 - 调用后实例:', instance);
+            return instance;
+        }
+    });
+
+    // 详细使用示例
+    const detailedInstance = new personProxy('Bob', 25);
+    console.log('详细使用 - 最终实例:', detailedInstance);
+</script>
+
+</html>

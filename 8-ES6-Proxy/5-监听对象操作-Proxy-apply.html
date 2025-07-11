@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 定义一个函数
+    function add(a, b) {
+        return a + b;
+    }
+
+    // apply 监听函数调用 - 基本使用
+    const addProxy = new Proxy(add, {
+        apply(target, thisArg, argArray) {
+            console.log('调用前 - 目标函数:', target.name);
+            console.log('调用前 - this上下文:', thisArg);
+            console.log('调用前 - 参数:', argArray);
+
+            // 调用原始函数
+            const result = target.apply(thisArg, argArray);
+
+            console.log('调用后 - 结果:', result);
+            return result;
+        }
+    });
+
+    // 基本使用示例
+    console.log('--- 基本使用 ---');
+    const sum1 = addProxy(2, 3);
+    console.log('最终结果:', sum1);
+
+    // apply 详细使用示例
+    console.log('--- 详细使用 ---');
+    const context = { multiplier: 2 };
+    const sum2 = addProxy.apply(context, [4, 5]);
+    console.log('带上下文调用结果:', sum2);
+
+</script>
+
+</html>
