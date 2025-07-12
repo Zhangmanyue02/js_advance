@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 同步函数
+    const bar = () => {
+        return 789
+    }
+    console.log(bar());
+
+    // 异步函数
+    const foo = async function (params) {
+        // 1.普通值或普通对象
+        // return 1234
+        return { name: "why" }
+    }
+    console.log("---普通值或普通对象---");
+    foo().then(res => {
+        console.log(res);
+    })
+
+    // 异步函数的返回值相当于被包裹到Promise.resolve中；
+    // Promise.resolve({ name: "why" }).then(res => {
+    //     console.log(res, 32);
+    // })
+
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.await后跟 普通值或对象
+    const bar = async () => {
+        const res = await {
+            then: (resolve, reject) => {
+                setTimeout(() => {
+                    // resolve("aaa")
+                    reject("bbb")
+                }, 2000)
+            }
+        }
+        return res
+    }
+    bar().then(res => {
+        console.log(res);
+    }).catch(err => {
+        console.log(err);
+    })
+</script>
+
+</html>

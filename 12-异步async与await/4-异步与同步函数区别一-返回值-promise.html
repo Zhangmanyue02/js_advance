@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const foo = async function (params) {
+        // 1.返回promise
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve("aaa")
+                reject("err")
+            }, 2000)
+        })
+    }
+    console.log("---promise对象---");
+    foo().then(res => {
+        console.log(res);
+    }).catch(err => {
+        console.log(err);
+    })
+
+</script>
+
+</html>

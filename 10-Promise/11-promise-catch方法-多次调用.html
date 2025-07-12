@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject()
+        }, 2000)
+    })
+
+    promise.catch(err => {
+        console.log("失败回调1执行");
+    })
+    promise.catch(err => {
+        console.log("失败回调2执行");
+    })
+    promise.catch(err => {
+        console.log("失败回调3执行");
+    })
+    //  当Promise的状态变成reject的时候，这些回调函数都会被执行；
+
+</script>
+
+</html>

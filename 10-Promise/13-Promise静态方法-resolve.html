@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("aaaa")
+        }, 2000)
+    }).then(res => {
+        console.log(res);
+    })
+    // Promise.resolve的用法相当于new Promise，并且执行resolve操作：
+    Promise.resolve("bbbb").then(res => {
+        console.log(res);
+    })
+
+    // Promise.resolve() 传参
+    // 1.传对象或普通值
+    Promise.resolve({ name: "zmy" }).then(res => {
+        console.log(res);
+    })
+    // 2.传新的promise对象
+    Promise.resolve(new Promise((resolve) => resolve("cccc"))).then(res => {
+        console.log(res);
+    })
+
+    // 3.传带then方法的对象
+    Promise.resolve({ name: "why", then: (reject) => reject("jjjj") }).catch(err => {
+        console.log(err);
+    })
+</script>
+
+</html>

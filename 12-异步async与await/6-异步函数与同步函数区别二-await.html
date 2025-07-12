@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 异步函数内可以使用await关键字，同步函数不允许
+    const bar = async () => {
+        const res = await "hello await"
+        return res
+    }
+    bar().then(res => {
+        console.log(res);
+    })
+</script>
+
+</html>

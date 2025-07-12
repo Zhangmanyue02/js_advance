@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // 1.传普通值或者对象
+            // resolve("hello promise")
+            resolve({ name: "zmy", age: 18 })
+        }, 2000)
+    })
+    promise.then((res) => {
+        // 传值和对象会被then的成功回调函数接收
+        console.log("成功回调执行~");
+        console.log(res);
+    }).catch((err) => {
+        console.log("失败回调执行", err);
+    })
+</script>
+
+</html>

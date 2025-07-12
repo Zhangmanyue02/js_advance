@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 本地存储
+    if (!localStorage.getItem("name")) {
+        console.log("本地存储");
+        localStorage.setItem("name", "lisi")
+    }
+    // 会话存储
+    sessionStorage.setItem("age", "18")
+</script>
+
+</html>

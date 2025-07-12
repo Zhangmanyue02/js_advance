@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 同步函数执行流程
+    const bar = () => {
+        console.log('bar start');
+        throw new Error("bar err")
+        console.log("bar end");
+    }
+    bar()
+
+    // 异步函数的执行流程
+    // 异步函数的内部代码执行过程和普通的函数是一致的，默认情况下也是会被同步执行
+    // 【但是】如果我们在async中抛出了异常，那么程序它并不会像普通函数一样报错，而是会作为Promise的reject来传递；
+    const foo = async () => {
+        console.log("foo start");
+        throw new Error("async函数执行错误")
+        console.log("foo end");
+    }
+    foo().then(() => {
+        console.log("Promise 成功执行");
+    }).catch(err => {
+        console.log("捕获到 Promise 的 reject:", err.message);
+    })
+</script>
+
+</html>

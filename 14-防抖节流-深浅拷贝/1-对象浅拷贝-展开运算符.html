@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 浅拷贝方式一：展开运算符
+    const info = {
+        name: "zmy",
+        age: 18,
+        sex: "男",
+        friend: {
+            name: "lisi",
+            age: 18,
+            sex: "男",
+        }
+    }
+    const info1 = {
+        ...info,
+    }
+    info1.friend.name = "guci"
+    console.log("info1=>", info1);
+    console.log("info=>", info);
+</script>
+
+</html>

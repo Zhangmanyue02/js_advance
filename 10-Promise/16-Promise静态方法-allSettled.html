@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("promise1")
+        }, 2000)
+    })
+    const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("reject2")
+        }, 2000)
+    })
+
+    Promise.allSettled([promise1, promise2]).then(res => {
+        console.log(res)
+    })
+
+    /*
+◼ 在ES11（ES2020）中，添加了新的API Promise.allSettled：
+ 该方法会在所有的Promise都有结果（settled），无论是fulfilled，还是rejected时，才会有最终的状态；
+ 并且这个Promise的结果一定是fulfilled的；
+ allSettled的结果是一个数组，数组中存放着每一个Promise的结果，并且是对应一个对象的；
+ 这个对象中包含status状态，以及对应的value值；
+    */
+</script>
+
+</html>

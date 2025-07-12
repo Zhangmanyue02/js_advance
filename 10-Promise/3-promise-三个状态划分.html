@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // promise状态划分
+    const promise = new Promise((resolve, reject) => {
+        // new Promise时会立即执行回调，在遇到resolve和reject前处于待定pending状态
+        setTimeout(() => {
+            // resolve() //当执行resolve时，会将状态改为成功fulfilled
+            reject() //当执行reject时，会将状态改为失败rejected
+        }, 2000);
+    })
+
+    promise.then(() => {
+        console.log("成功回调被执行~");
+    }).catch(() => {
+        console.log("失败回调被执行~");
+    })
+</script>
+
+</html>

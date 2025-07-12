@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const info = {
+        name: "zmy",
+        age: 18
+    }
+    //  Object.preventExtensions
+    console.log("----Object.preventExtensions----");
+    console.log("扩展前", info);
+    Object.preventExtensions(info)
+    info.address = "beijing"
+    console.log("扩展后", info);
+
+    // Reflect.preventExtensions
+    console.log("----Reflect.preventExtensions----");
+    console.log("扩展前", info);
+    Reflect.preventExtensions(info)
+    info.address = "beijing"
+    console.log("扩展后", info);
+
+    // isExtensible
+    console.log("----Reflect.isExtensible----");
+    console.log("Reflect.isExtensible:", Reflect.isExtensible(info));
+    console.log("Object.isExtensible:", Object.isExtensible(info));
+
+
+</script>
+
+</html>

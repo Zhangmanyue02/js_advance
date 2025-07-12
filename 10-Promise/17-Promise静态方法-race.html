@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("promise1")
+        }, 2000)
+    })
+    const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("promise2")
+        }, 1000)
+    })
+    const promise3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("reject3")
+        }, 1000)
+    })
+    const promise4 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("reject4")
+        }, 2000)
+    })
+    Promise.race([promise1, promise2, promise3, promise4]).then(res => {
+        console.log(res);
+    }).catch(err => {
+        console.log(err);
+    })
+</script>
+
+</html>

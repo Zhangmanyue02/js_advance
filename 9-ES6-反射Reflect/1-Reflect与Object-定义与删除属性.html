@@ -17,23 +17,6 @@
         age: 18
     };
 
-    // ===== Object 和 Reflect 的 getPrototypeOf 方法 =====
-    console.log('===== getPrototypeOf =====');
-    // Object 操作对象：获取对象的原型
-    console.log('Object.getPrototypeOf(info) == info.__proto__:', Object.getPrototypeOf(info) == info.__proto__);
-
-    // 修改对象原型
-    info.__proto__ = {
-        sayName() {
-            console.log(this.name);
-        }
-    };
-    console.log('Object.getPrototypeOf(info):', Object.getPrototypeOf(info));
-
-    // Reflect 操作对象
-    console.log('Reflect.getPrototypeOf(info):', Reflect.getPrototypeOf(info));
-    console.log('\n');
-
     // ===== Object 和 Reflect 的 defineProperty 方法 =====
     console.log('===== defineProperty =====');
     // Object 定义属性
